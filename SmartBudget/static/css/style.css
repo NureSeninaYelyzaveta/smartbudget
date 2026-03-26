@@ -1,0 +1,134 @@
+/* Общий стиль для всего приложения */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0f1c2c; /* глубокий темно-синий фон */
+    color: #ffffff; /* белый текст для контраста */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Основной контейнер */
+.container {
+    width: 100%;
+    max-width: 700px;
+    padding: 50px;
+    background-color: #1b2a44; /* темный синий для блока */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+/* Заголовки */
+h1, h2, h3 {
+    color: #88c0d4; /* мягкий голубой акцент */
+    margin-bottom: 40px;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+/* Формы */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* Поля ввода */
+input, select {
+    padding: 15px;
+    width: 85%;
+    max-width: 360px;
+    border: none;
+    border-radius: 10px;
+    background-color: #22344a; /* чуть светлее темного фона */
+    color: #ffffff;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #7fc6e0; /* мягкий голубой контур при фокусе */
+}
+
+/* Кнопки */
+button, input[type="submit"], a.btn {
+    padding: 15px 35px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #1c5c80, #2a6d96); /* глубокий голубой градиент */
+    color: #ffffff;
+    transition: 0.3s;
+    width: 240px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(26, 108, 143, 0.5);
+}
+
+button:hover, input[type="submit"]:hover, a.btn:hover {
+    background: linear-gradient(135deg, #2a6d96, #1c5c80);
+    box-shadow: 0 8px 20px rgba(26, 108, 143, 0.6);
+}
+
+/* Таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+th, td {
+    border: 1px solid #7fc6e0;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Сообщения */
+.flash.success {
+    color: #2a9fd1;
+    text-align: center;
+}
+
+.flash.danger {
+    color: #ff6f61;
+    text-align: center;
+}
+
+
+/* Для таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    table-layout: fixed; /* фиксированная ширина колонок */
+}
+
+/* Ячейки таблицы */
+th, td {
+    border: 1px solid #7fc6e0;
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word; /* перенос длинного текста */
+}
+
+/* Кнопка внутри таблицы */
+td form {
+    margin: 0; /* убираем лишние отступы */
+}
+
+td form .toggle-btn {
+    width: auto;             /* под размер текста */
+    padding: 5px 8px;        /* уменьшаем padding */
+    font-size: 0.8rem;       /* меньше шрифт */
+    border-radius: 5px;      /* чуть скругления */
+    box-shadow: 0 3px 6px rgba(26, 108, 143, 0.5);
+    display: inline-block;   /* чтобы не растягивалась на всю ширину td */
+}
+

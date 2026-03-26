@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartBudget</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Ласкаво просимо до SmartBudget</h1>
+    <!-- Кнопки увійти / зареєструватися -->
+    <div class="buttons">
+        <a href="{{ url_for('login') }}" class="btn">Увійти</a>
+        <a href="{{ url_for('register') }}" class="btn">Реєстрація</a>
+    </div>
+</div>
+</body>
+</html>

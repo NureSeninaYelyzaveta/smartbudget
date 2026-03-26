@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Дашборд - SmartBudget</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Дашборд</h1>
+
+    <!-- Баланс -->
+    <h2>Баланс: {{ balance }} ₴</h2>
+
+    <!-- Форма додавання транзакції -->
+    <form method="post" action="{{ url_for('add_transaction', user_id=user_id) }}">
+        <select name="type">
+            <option value="income">Доход</option>
+            <option value="expense">Витрата</option>
+        </select>
+        <input type="text" name="category" placeholder="Категорія" required>
+        <input type="number" name="amount" step="0.01" placeholder="Сума" required>
+        <input type="date" name="date" required>
+        <button type="submit">Додати</button>
+    </form>
+
+    <!-- Таблиця транзакцій -->
+    <h3>Транзакції</h3>
+    <table>
+        <tr>
+            <th>Тип</th>
+            <th>Категорія</th>
+            <th>Сума</th>
+            <th>Дата</th>
+            <th>Дія</th>
+        </tr>
+        {% for t in transactions %}
+        <tr>
+            <td>{{ t[2] }}</td>
+            <td>{{ t[3] }}</td>
+            <td>{{ t[4] }}</td>
+            <td>{{ t[5] }}</td>
+            <td>
+            <form method="post" action="{{ url_for('toggle_transaction', id=t[0]) }}">
+   <button type="submit" class="toggle-btn">Змінити тип</button>
+</form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
