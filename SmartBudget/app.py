@@ -7,7 +7,7 @@ app.secret_key = "smartbudget_secret_key"
 
 DB_NAME = "database.db"
 
-# Создание базы данных и таблиц
+# Створення бд и таблиць
 def init_db():
     if not os.path.exists(DB_NAME):
         conn = sqlite3.connect(DB_NAME)
@@ -35,12 +35,12 @@ def init_db():
 
 init_db()
 
-# Главная страница
+# головна сторінка
 @app.route("/")
 def index():
     return render_template("index.html")
 
-# Регистрация
+# Регістрація
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -59,7 +59,7 @@ def register():
             conn.close()
     return render_template("register.html")
 
-# Логин
+# Логін
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -71,7 +71,7 @@ def login():
         user = cursor.fetchone()
         conn.close()
         if user:
-            # сохраняем user_id в сессии для toggle
+           
             session['user_id'] = user[0]
             return redirect(url_for("dashboard", user_id=user[0]))
         else:
@@ -89,7 +89,7 @@ def dashboard(user_id):
     balance = sum(t[4] if t[2] == "income" else -t[4] for t in transactions)
     return render_template("dashboard.html", transactions=transactions, balance=balance, user_id=user_id)
 
-# Добавление транзакции
+# Додавання транзакцій
 @app.route("/add_transaction/<int:user_id>", methods=["POST"])
 def add_transaction(user_id):
     t_type = request.form["type"]
@@ -107,7 +107,7 @@ def add_transaction(user_id):
     flash("Транзакція додана!", "success")
     return redirect(url_for("dashboard", user_id=user_id))
 
-# Переключение типа транзакции
+# Для зміни типу транзакціі
 @app.route('/toggle/<int:id>', methods=['POST'])
 def toggle_transaction(id):
     conn = sqlite3.connect(DB_NAME)
